@@ -1,5 +1,6 @@
-package exceptions;
+package de.grilborzer.neuefische.todo.backend;
 
+import exceptions.TodoNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -12,7 +13,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalExceptionsHandler {
 
-    @ExceptionHandler(value =TodoNotFoundException.class)
+    @ExceptionHandler(value = TodoNotFoundException.class)
     public ResponseEntity handleTodoNotFoundException(TodoNotFoundException exception) {
 
         Map<String, Object> responseBody = new LinkedHashMap<>();
