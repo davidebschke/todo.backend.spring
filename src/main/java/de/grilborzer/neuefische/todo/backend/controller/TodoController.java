@@ -17,7 +17,7 @@ public class TodoController {
     private final TodoService todoService;
 
     @GetMapping(value = {"/{todoId}"})
-    public Optional<Todo> getTodo(@PathVariable String todoId) {
+    public Todo getTodo(@PathVariable String todoId) {
         return todoService.getTodo(todoId);
     }
 

@@ -2,6 +2,7 @@ package de.grilborzer.neuefische.todo.backend.service;
 
 import de.grilborzer.neuefische.todo.backend.persistence.Todo;
 import de.grilborzer.neuefische.todo.backend.persistence.TodoRepository;
+import exceptions.TodoNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +29,9 @@ public class TodoService {
         }
     }
 
-    public Optional<Todo> getTodo(String todoId) {
-        return todoRepository.findById(todoId);
+    public Todo getTodo(String todoId) {
+
+        return todoRepository.findById(todoId).orElseThrow(TodoNotFoundException::new);
     }
 
     public List<Todo> getAllTodos() {
